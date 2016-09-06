@@ -3,6 +3,7 @@ import { Hero } from './hero';
 import { HeroService } from './hero.service';
 
 @Component({
+    moduleId: module.id,
     selector: 'my-heroes',
     templateUrl: 'app/heroes.component.html',
     styleUrls: ['app/heroes.component.css']

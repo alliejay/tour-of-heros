@@ -29,6 +29,11 @@ export class HeroDetailComponent implements OnInit {
         });
     }
 
+    save(): voice {
+     this.heroService.update(this.hero)
+         .then(this.goBack);
+    }
+
     goBack(): void {
         window.history.back();
     }

@@ -14,7 +14,7 @@ export class HeroService {
 
     constructor(private http: Http) { }
 
-    create(name: String): Promise<Hero> {
+    create(name: string): Promise<Hero> {
         return this.http
             .post(this.heroesUrl, JSON.stringify({name: name}), {headers: this.headers})
             .toPromise()
@@ -28,6 +28,14 @@ export class HeroService {
             .put(url, JSON.stringify(hero), {headers: this.headers})
             .toPromise()
             .then(() => hero)
+            .catch(this.handleError);
+    }
+
+    delete(id: number): Promise<void> {
+        let url = `${this.heroesUrl}/${id}`;
+        return this.http.delete(url, {headers: this.headers})
+            .toPromise()
+            .then(() => null)
             .catch(this.handleError);
     }
 

@@ -29,7 +29,7 @@ export class HeroDetailComponent implements OnInit {
         });
     }
 
-    save(): voice {
+    save(): void {
      this.heroService.update(this.hero)
          .then(this.goBack);
     }
